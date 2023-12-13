@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Grades Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+        }
+
+    h1 {
+      color: #000000;
+    }
+    h2 {
+      color: #000000;
+    }
+    ol {
+      margin-bottom: 20px;
+      text-align: left; /* Adjusted to left-align the numbers */
+      padding-left: 0; /* Remove default padding for the list */
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 18px; /* Increased font size */
+    }
+    
+    nav {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    button {
+      background-color: #000000;
+      color: hsl(0, 0%, 0%);
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #000000;
+    }
+
+    section {
+            padding: 40px;
+            text-align: center;
+        }
+
+    p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #000000;
+        }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #000000;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .grade {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Exam Grades Page</h1>
+</header>
+    <nav>
+        <a href="index.html" target="_blank">Home</a> |
+        <a href="school registration.html" target="_blank">School Registration </a> |
+        <a href="decs.html" target="_blank">Exam Schedules</a> |
+        <a href="test-grades.html" target="_blank">Exam Grades</a> |
+        <a href="courses.html" target="_blank">Reinforcement Courses</a> |
+        <a href="timetable.html" target="_blank">Class Timetables</a> |
+        <a href="gallery.html" target="_blank">Photo Gallery </a> |
+        <a href="about us.html" target="_blank">About Us</a> |
+        <a href="contact us.html" target="_blank">Contact Us</a> |
+        <a href="news.html" target="_blank">School News</a>
+        <a href="school handbook.html" target="_blank">School Handbook</a>
+      </nav> 
+
+  <h2>Filter Exam Grades</h2>
+  <form id="searchForm">
+    <label for="searchName">Full Name:</label>
+    <input type="text" id="searchName" name="searchName" oninput="filterGrades()"><br>
+
+    <label for="searchNumber">Seat Number:</label>
+    <input type="text" id="searchNumber" name="searchNumber" oninput="filterGrades()"><br>
+  </form>
+
+  <table id="gradesTable">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Seat Number</th>
+        <th>Exam Grade</th>
+      </tr>
+    </thead>
+    <tbody id="gradesBody">
+      <!-- Exam grades will be displayed here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Sample data for exam grades
+    const testGradesData = [
+      { name: "dan jake", number: "123", grade: "100%" },
+      { name: "jason smith", number: "456", grade: "100%" },
+      // Add more test grades as needed
+    ];
+
+    // Function to filter exam grades based on exact input values
+    function filterGrades() {
+      const searchName = document.getElementById("searchName").value.toLowerCase();
+      const searchNumber = document.getElementById("searchNumber").value.toLowerCase();
+
+      const filteredGrades = testGradesData.filter(testGrade => {
+        const gradeName = testGrade.name.toLowerCase();
+        const gradeNumber = testGrade.number.toLowerCase();
+
+        return gradeName === searchName && gradeNumber === searchNumber;
+      });
+
+      displayGrades(filteredGrades);
+    }
+
+    // Function to display exam grades in a table-like format
+    function displayGrades(testGrades) {
+      const gradesBody = document.getElementById("gradesBody");
+      gradesBody.innerHTML = "";
+
+      testGrades.forEach(testGrade => {
+        const gradeRow = document.createElement("tr");
+        gradeRow.className = "grade";
+
+        const nameCell = document.createElement("td");
+        nameCell.textContent = testGrade.name;
+
+        const numberCell = document.createElement("td");
+        numberCell.textContent = testGrade.number;
+
+        const gradeCell = document.createElement("td");
+        gradeCell.textContent = testGrade.grade;
+
+        gradeRow.appendChild(nameCell);
+        gradeRow.appendChild(numberCell);
+        gradeRow.appendChild(gradeCell);
+
+        gradesBody.appendChild(gradeRow);
+      });
+
+      // Show hidden exam grades
+      showHiddenGrades();
+    }
+
+    // Function to show hidden exam grades
+    function showHiddenGrades() {
+      const hiddenGrades = document.querySelectorAll(".grade");
+      hiddenGrades.forEach(grade => {
+        grade.style.display = "table-row";
+      });
+    }
+  </script>
+</body>
+</html>

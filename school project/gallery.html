@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Gallery: Images and Videos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            direction: rtl;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff; /* Change color to white */
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #000000;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .media {
+            margin-top: 30px;
+        }
+
+        .media video {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>School Gallery</h1>
+    </header>
+
+    <nav>
+        <a href="index.html" target="_blank">Home</a> |
+        <a href="school registration.html" target="_blank">Enrollment</a> |
+        <a href="decs.html" target="_blank">Exam Schedule</a> |
+        <a href="test-grades.html" target="_blank">Exam Grades</a> |
+        <a href="courses.html" target="_blank">Reinforcement Courses</a> |
+        <a href="timetable.html" target="_blank">Class Timetables</a> |
+        <a href="gallery.html" target="_blank">Photo Gallery</a> |
+        <a href="about us.html" target="_blank">About Us</a> |
+        <a href="contact us.html" target="_blank">Contact Us</a> |
+        <a href="news.html" target="_blank">School News</a>
+        <a href="school handbook.html" target="_blank">School Handbook</a>
+    </nav>
+
+    <section>
+        <h2>Image Gallery</h2>
+        <div class="gallery">
+            <!-- Add your image elements here -->
+            <img src="images (8).jpg" alt="Image 1">
+            <img src="images (7).jpg" alt="Image 2">
+            <img src="images (6).jpg" alt="Image 3">
+            <img src="images (5).jpg" alt="Image 4">
+            <img src="images (4).jpg" alt="Image 5">
+            <img src="images (3).jpg" alt="Image 6">
+            <img src="images (2).jpg" alt="Image 7">
+            <img src="images (1).jpg" alt="Image 8">
+            <img src="images.jpg" alt="Image 9">
+            <img src="download.jpg" alt="Image 10">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+
+    <section class="media">
+        <h2>Video Gallery</h2>
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Add more videos as needed -->
+    </section>
+
+    <footer>
+        <!-- Your footer content goes here -->
+    </footer>
+
+</body>
+
+</html>
